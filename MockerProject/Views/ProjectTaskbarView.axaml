@@ -1,0 +1,65 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:MockerProject.ViewModels"
+             xmlns:v="clr-namespace:MockerProject.Views"
+             Name="ProjectTaskbar"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="MockerProject.Views.ProjectTaskbarView"
+             x:DataType="vm:MainWindowViewModel">
+    <Design.DataContext>
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+    
+    <UserControl.Styles>
+        <Style Selector="ToggleButton:checked">
+            <Setter Property="Background" Value="Red"/>
+        </Style>
+    </UserControl.Styles>
+    
+    <DockPanel Background="#313131" Margin="1">
+        <StackPanel DockPanel.Dock="Top">
+            <!--<Button Click="onSetRefresh"></Button>-->
+            <ToggleButton Name="Project" IsChecked="{Binding IsProjectView}" Width = "190" Margin="5 5 5 0" HorizontalContentAlignment="Center">
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+					<TextBlock Text="{Binding strProjectTitle}"/>
+					<TextBlock Text="*" IsVisible="{Binding IsProjectUnSaved}"/>
+				</StackPanel>
+			</ToggleButton>
+            <!--<TreeView BorderThickness="1" Margin="0 5">
+                <TreeViewItem Header="Project1" IsExpanded="True">
+                </TreeViewItem>
+            </TreeView>-->
+            <Separator IsEnabled="False" 
+                       Background="{DynamicResource SystemChromeAltLowColor}" Opacity="0.3">
+            </Separator>
+        </StackPanel>
+        <DockPanel>
+            <DockPanel.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="New Screen" Command="{Binding onNewScreen}"/>
+                    <MenuItem Header="Delete" Command="{Binding onDeleteScreen}"/>
+                    <MenuItem Header="Rename"/>
+                </ContextMenu>
+            </DockPanel.ContextMenu>  
+            <ListBox Name="ListSmallScreen" SelectedIndex="{Binding SmallScreenID}"
+                     ItemsSource="{Binding SmallScreens}" Background="Transparent" IsVisible="{Binding IsScreenVisible}">
+                    <!--<ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <ContentControl Content="{Binding}"></ContentControl>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>-->
+                </ListBox>
+                <!--<ListBox Name="myList" SelectedIndex="{Binding MyItemsIndex}">
+                        <ListBoxItem >
+                            <Panel>
+                                <v:ScreenSmallView></v:ScreenSmallView>
+                                <TextBlock TextAlignment="Center" Text="SCREEN 1"></TextBlock>
+                            </Panel>
+                        </ListBoxItem>
+                    </ListBox>-->
+        </DockPanel>
+            
+    </DockPanel>
+</UserControl>

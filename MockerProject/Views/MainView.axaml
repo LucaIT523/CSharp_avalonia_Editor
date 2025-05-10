@@ -1,0 +1,28 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:vm="clr-namespace:MockerProject.ViewModels"
+             xmlns:v="clr-namespace:MockerProject.Views"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="MockerProject.Views.MainView"
+			 x:CompileBindings="True" x:DataType="vm:MainWindowViewModel">
+
+	<!-- 
+
+	<syncfusion:TaskBar x:Name ="taskBar" >
+	</syncfusion:TaskBar>
+	-->
+	<Design.DataContext>
+		<vm:MainWindowViewModel />
+	</Design.DataContext>
+
+	<Grid x:Name="MainPanel"
+          RowDefinitions="42,*">
+		<v:HeaderView  />
+		<Grid Row="1" IsVisible="{Binding IsProjectOpened}">
+			<v:BodyView />
+		</Grid>
+	</Grid>
+</UserControl>
+

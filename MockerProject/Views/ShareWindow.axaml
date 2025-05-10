@@ -1,0 +1,140 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:MockerProject.Views"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Width="900" Height="600"
+        x:Class="MockerProject.Views.ShareWindow"
+        Title="ShareWindow" 
+		ShowInTaskbar="False"
+        Topmost="False"
+        WindowStartupLocation="CenterOwner" CanResize="False">
+    
+    <Window.Styles>
+
+        <Style Selector="TabControl">
+            <Setter Property="Background" Value="#555555"/>
+            <Setter Property="Margin" Value="1"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="BorderBrush" Value="#f0f0f0"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+        <Style Selector="TabControl WrapPanel">
+            <Setter Property="Background" Value="#373737"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style Selector="SelectingItemsControl">
+            <Setter Property="BorderBrush" Value="#f0f0f0"/>
+            <Setter Property="BorderThickness" Value="11"/>
+        </Style>
+
+        <Style Selector="TabItem">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Height" Value="0"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Background" Value="#505050"/>
+            <Setter Property="Foreground" Value="#909090"/>
+            <Setter Property="Margin" Value="1 0"/>
+            <Setter Property="Padding" Value="10 0"/>
+        </Style>
+        <Style Selector="TabItem:pointerover">
+            <Setter Property="Foreground" Value="#555555"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Margin" Value="1 0"/>
+            <Setter Property="Padding" Value="10 0"/>
+        </Style>
+        <!--<Style Selector="TabItem:pointerover /template/ Border#PART_SelectedPipe">
+            <Setter Property="ClipToBounds" Value="True"/>
+            <Setter Property="BorderThickness" Value="3"></Setter>
+        </Style>-->
+
+        <Style Selector="TabItem:focus">
+            <Setter Property="Foreground" Value="#000000"/>
+            <Setter Property="Margin" Value="1 0"/>
+            <Setter Property="Padding" Value="10 0"/>
+        </Style>
+        <!--<Style Selector="TabItem:focus /template/ Border#PART_SelectedPipe">
+            <Setter Property="Background" Value="#000000"/>
+            <Setter Property="BorderThickness" Value="3"></Setter>
+        </Style>-->
+
+        <Style Selector="TabItem:selected">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Background" Value="#555555"/>
+            <Setter Property="Margin" Value="1 0"/>
+            <Setter Property="Padding" Value="10 0"/>
+        </Style>
+        <Style Selector="TabItem:selected /template/ Border#PART_SelectedPipe">
+            <Setter Property="Background" Value="#555555"/>
+            <Setter Property="IsVisible" Value="False"/>
+            <Setter Property="Padding" Value="10 0"/>
+        </Style>
+
+    </Window.Styles>
+    
+    <Grid ColumnDefinitions="450,Auto">
+        <StackPanel>
+            <StackPanel Background="#505050">
+                <!--<CheckBox HorizontalAlignment="Right" Margin="10">Include linked Screens</CheckBox>-->
+            </StackPanel>
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" 
+                          VerticalScrollBarVisibility="Auto">
+                <WrapPanel Name="pagePanel" Background="Black" Width="450" Height="600">
+                    <!--<views:ScreenSmallView Width="225" Height="200"/>
+				    <views:ScreenSmallView Width="225" Height="200"/>-->
+                    <!--<Image Stretch="UniformToFill"
+                           Margin="5"
+                           Name="image"
+                           Source="/Assets/3-9.png">
+                        <Image.GestureRecognizers>
+                            <ScrollGestureRecognizer CanHorizontallyScroll="True"
+                                                     CanVerticallyScroll="True"/>
+                        </Image.GestureRecognizers>
+                    </Image>-->
+                </WrapPanel>
+            </ScrollViewer>
+        </StackPanel>
+        
+          <TabControl Grid.Column="1" Name="shareTab">
+              <TabItem Header="New Share" Margin="0" Width="220" HorizontalContentAlignment="Center">
+                  <StackPanel>
+                      <StackPanel Orientation="Vertical"   Margin="10">
+                          <StackPanel Orientation="Horizontal">
+                              <TextBlock Text="Publish to" VerticalAlignment="Center" Margin="10 0"></TextBlock>
+                              <ComboBox SelectedIndex="0" Width="330">
+                                  <ComboBoxItem Content="Personal workspace"></ComboBoxItem>
+                              </ComboBox>
+                          </StackPanel>
+                          <TextBox Name="ShareName" Text="Screen1" Margin="10"></TextBox>
+                          <TextBox Name="ShareDescription" Watermark="A brief description" Height="100" AcceptsReturn="True" TextWrapping="Wrap" Margin="10"></TextBox>
+                          <TextBox Name="ShareTag" Watermark="Add a tag" Margin="10"></TextBox>
+                          <TextBox Name="SharePW" PasswordChar="*" Watermark="Enter your password" Width="200" Margin="10" HorizontalAlignment="Left"/>
+                          <TextBlock Text="Review and commenting options" Margin="10 10 10 0"></TextBlock>
+                          <StackPanel Margin="10 5">
+                              <CheckBox IsChecked="True">Annotations</CheckBox>
+                              <CheckBox IsChecked="False">Highlight interactions</CheckBox>
+                              <CheckBox IsChecked="True">Commenting</CheckBox>
+                          </StackPanel>
+                      </StackPanel>
+                      <StackPanel Margin="0 10 0 0" Background="#333333">
+                          <Button Name="LinkBtn" Click="onShare" HorizontalAlignment="Center" Background="ForestGreen" Margin="0 20">Generate link to publish workspace</Button>
+                      </StackPanel>
+                  </StackPanel>
+              </TabItem>
+              <TabItem Header="Replace exsiting" Margin="0" Width="217" HorizontalContentAlignment="Center">
+                  <StackPanel Orientation="Vertical"   Margin="10">
+                      <StackPanel Orientation="Horizontal">
+                          <TextBlock Text="Showing shares from" VerticalAlignment="Center" Margin="10 0"></TextBlock>
+                          <ComboBox SelectedIndex="0" Width="255">
+                              <ComboBoxItem Content="Personal workspace"></ComboBoxItem>
+                          </ComboBox>
+                      </StackPanel>
+                      <TextBox Name="shareSearch" Watermark="Search" Margin="10"></TextBox>
+
+                  </StackPanel>
+              </TabItem>
+          </TabControl>
+  </Grid>
+</Window>

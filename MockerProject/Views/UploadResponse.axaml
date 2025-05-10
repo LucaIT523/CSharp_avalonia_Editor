@@ -1,0 +1,30 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="MockerProject.Views.UploadResponse"
+        Width="500"
+        Height="230"
+        ShowInTaskbar="False"
+        CanResize="False"
+        WindowStartupLocation="CenterOwner"
+        WindowState="Normal"
+        SystemDecorations="BorderOnly"
+        Background="Gray"
+        RequestedThemeVariant="Light"
+        Title="Upload Response">
+    <StackPanel Orientation="Vertical">
+        <TextBlock Text="Upload Response" Foreground="White" Padding="10" Background="Navy"></TextBlock>
+        <StackPanel Orientation="Vertical" Margin="20">
+            <TextBlock Text="Share Link :" Margin="0 10"></TextBlock>
+            <StackPanel Orientation="Horizontal" Margin="10 5 10 10">
+                <TextBox Name="shareLink" Width="350" Margin="10 0 0 0" IsReadOnly="True" CornerRadius="5,0,0,5">
+                    
+                </TextBox>
+                <Button Content="Copy link" Click="Button_OnCopy" Height="32" CornerRadius="0,5,5,0" ></Button>
+            </StackPanel>
+            <Button Content="Ok" Click="Button_OnClick" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Width="100" Margin="10 20"></Button>
+        </StackPanel>
+    </StackPanel>
+</Window>

@@ -1,0 +1,1 @@
+<TextBox Width="380" Height="25" HorizontalAlignment="Center" Foreground="WhiteSmoke" BorderBrush="Transparent" > <TextBox.Background> <ImageBrush ImageSource="/icon/user_login.png" AlignmentX="Left" Stretch="None"></ImageBrush> </TextBox.Background> </TextBox>

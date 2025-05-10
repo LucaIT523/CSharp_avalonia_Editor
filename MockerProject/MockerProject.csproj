@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <Nullable>enable</Nullable>
+    <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    <TargetFrameworks>net7.0;net8.0</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <AvaloniaResource Include="Assets\**" />
+    <Folder Include="Views\UIControls\" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.0.4" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.0.4" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.4" />
+    <PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.4" />
+    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.4" />
+    <PackageReference Include="Avalonia.ReactiveUI" Version="11.0.4" />
+    <PackageReference Include="Avalonia.Xaml.Interactions.Responsive" Version="11.0.2" />
+    <PackageReference Include="Avalonia.Xaml.Interactivity" Version="11.0.2" />
+    <PackageReference Include="AvaloniaColorPicker" Version="1.4.0" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
+    <PackageReference Include="CropperImage.MAUI" Version="1.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="3.0.2" />
+    <PackageReference Include="System.IO.Compression" Version="4.3.0" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Compile Update="Views\SaveProjectWindow.axaml.cs">
+      <DependentUpon>SaveProjectWindow.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ProjectToolbarView.axaml.cs">
+      <DependentUpon>ProjectToolbarView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ProjectWorkView.axaml.cs">
+      <DependentUpon>ProjectWorkView.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ProjectTaskbarView.axaml.cs">
+      <DependentUpon>ProjectTaskbarView.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

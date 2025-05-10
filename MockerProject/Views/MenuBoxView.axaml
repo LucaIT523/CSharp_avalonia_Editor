@@ -1,0 +1,223 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="MockerProject.Views.MenuBoxView"
+             xmlns:vm="clr-namespace:MockerProject.ViewModels"
+             x:DataType="vm:MainWindowViewModel">
+	
+	<Design.DataContext>
+		<vm:MainWindowViewModel />
+	</Design.DataContext>
+	<Grid Background="#454545">
+		<StackPanel HorizontalAlignment="Center"
+		            VerticalAlignment="Top">
+			<Button HorizontalAlignment="Center"
+			        Padding="10,5"
+			        Width="250"
+			        Height="42"
+			        Background="#777777" 
+			        Foreground="White"
+			        Command="{Binding onMenuClose}">
+				<StackPanel Orientation="Horizontal">
+					<Image Source="/Assets/Back.png" HorizontalAlignment="Left" Margin="15,0,30,0"/>
+					<TextBlock Text="Projects Menu" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+				</StackPanel>
+				<Button.Styles>
+					<Style>
+						<Style.Resources>
+							<SolidColorBrush x:Key="ButtonBackgroundPointerOver">#707070</SolidColorBrush>
+							<SolidColorBrush x:Key="ButtonBackgroundPressed">Transparent</SolidColorBrush>
+							<SolidColorBrush x:Key="ButtonForegroundPointerOver">Honeydew</SolidColorBrush>
+							<SolidColorBrush x:Key="ButtonForegroundPressed">Gainsboro</SolidColorBrush>
+						</Style.Resources>
+					</Style>
+				</Button.Styles>
+				
+			</Button>
+			<Button Name="NewBtn"
+			        Command="{Binding onNewProject}"
+			        HorizontalContentAlignment="Left"
+			        Margin="0,20,0,0"
+			        Width="250"
+			        Background="Transparent"
+			        Foreground="Gainsboro">
+				<StackPanel Orientation="Horizontal">
+					<Image Source="/Assets/New.png" Height="20" Margin="35,0,20,0"/>
+					<TextBlock Text="New" Width="100" VerticalAlignment="Bottom"/>
+					<TextBlock Text="Crl+N" FontSize="10" VerticalAlignment="Bottom"/>
+				</StackPanel>
+				<Button.Styles>
+					<Style>
+						<Style.Resources>
+							<SolidColorBrush x:Key="ButtonBackgroundPointerOver">#707070</SolidColorBrush>
+							<SolidColorBrush x:Key="ButtonBackgroundPressed">Transparent</SolidColorBrush>
+							<SolidColorBrush x:Key="ButtonForegroundPointerOver">White</SolidColorBrush>
+							<SolidColorBrush x:Key="ButtonForegroundPressed">Gainsboro</SolidColorBrush>
+						</Style.Resources>
+					</Style>
+				</Button.Styles>
+			</Button>
+			<Button Name="OpenBtn"
+			        Command="{Binding onOpenProject}"
+			        HorizontalContentAlignment="Left"
+			        Margin="0,5,0,0"
+			        Width="250"
+			        Background="Transparent"
+			        Foreground="Gainsboro">
+				<StackPanel Orientation="Horizontal">
+					<Image Source="/Assets/Open.png" Height="20" Margin="35,0,20,0"/>
+					<TextBlock Text="Open" Width="100" VerticalAlignment="Bottom"/>
+					<TextBlock Text="Crl+O" FontSize="10" VerticalAlignment="Bottom"/>
+				</StackPanel>
+				<Button.Styles>
+					<Style>
+						<Style.Resources>
+							<SolidColorBrush x:Key="ButtonBackgroundPointerOver">#707070</SolidColorBrush>
+							<SolidColorBrush x:Key="ButtonBackgroundPressed">Transparent</SolidColorBrush>
+							<SolidColorBrush x:Key="ButtonForegroundPointerOver">White</SolidColorBrush>
+							<SolidColorBrush x:Key="ButtonForegroundPressed">Gainsboro</SolidColorBrush>
+						</Style.Resources>
+					</Style>
+				</Button.Styles>
+			</Button>
+			<Button Name="SaveBtn"
+			        Command="{Binding onSaveProject}"
+			        HorizontalContentAlignment="Left"
+			        Margin="0,5,0,0"
+			        Width="250"
+			        Background="Transparent"
+			        Foreground="Gainsboro">
+				<StackPanel Orientation="Horizontal">
+					<Image Source="/Assets/Save.png" Height="20" Margin="35,0,20,0"/>
+					<TextBlock Text="Save" Width="100" VerticalAlignment="Bottom"/>
+					<TextBlock Text="Crl+S" FontSize="10" VerticalAlignment="Bottom"/>
+				</StackPanel>
+				<Button.Styles>
+					<Style>
+						<Style.Resources>
+							<SolidColorBrush x:Key="ButtonBackgroundPointerOver">#707070</SolidColorBrush>
+							<SolidColorBrush x:Key="ButtonBackgroundPressed">Transparent</SolidColorBrush>
+							<SolidColorBrush x:Key="ButtonForegroundPointerOver">White</SolidColorBrush>
+							<SolidColorBrush x:Key="ButtonForegroundPressed">Gainsboro</SolidColorBrush>
+						</Style.Resources>
+					</Style>
+				</Button.Styles>
+			</Button>
+			<!--<Button Name="SaveAsBtn"
+			        HorizontalContentAlignment="Left"
+			        Margin="0,5,0,0"
+			        Width="250"
+			        Background="Transparent"
+			        Foreground="Gainsboro">
+				<StackPanel Orientation="Horizontal">
+					<Image Source="" Height="20" Margin="35,0,40,0"/>
+					<TextBlock Text="Save As..." Width="100" VerticalAlignment="Bottom"/>
+					<TextBlock Text="" FontSize="10" VerticalAlignment="Bottom"/>
+				</StackPanel>
+				<Button.Styles>
+					<Style>
+						<Style.Resources>
+							<SolidColorBrush x:Key="ButtonBackgroundPointerOver">#707070</SolidColorBrush>
+							<SolidColorBrush x:Key="ButtonBackgroundPressed">Transparent</SolidColorBrush>
+							<SolidColorBrush x:Key="ButtonForegroundPointerOver">White</SolidColorBrush>
+							<SolidColorBrush x:Key="ButtonForegroundPressed">Gainsboro</SolidColorBrush>
+						</Style.Resources>
+					</Style>
+				</Button.Styles>
+			</Button>-->
+			<Button Name="SaveAllBtn"
+			        Command="{Binding onSaveAllProject}"
+			        HorizontalContentAlignment="Left"
+			        Margin="0,5,0,0"
+			        Width="250"
+			        Background="Transparent"
+			        Foreground="Gainsboro"
+			        IsEnabled="{Binding IsProjectUnSaved}">
+				<StackPanel Orientation="Horizontal">
+					<Image Source="/Assets/SaveAll.png" Height="20" Margin="35,0,20,0"/>
+					<TextBlock Text="Save All" Width="100" VerticalAlignment="Bottom"/>
+					<TextBlock Text="Crl+Shift+S" FontSize="10" VerticalAlignment="Bottom"/>
+				</StackPanel>
+				<Button.Styles>
+					<Style>
+						<Style.Resources>
+							<SolidColorBrush x:Key="ButtonBackgroundPointerOver">#707070</SolidColorBrush>
+							<SolidColorBrush x:Key="ButtonBackgroundPressed">Transparent</SolidColorBrush>
+							<SolidColorBrush x:Key="ButtonForegroundPointerOver">White</SolidColorBrush>
+							<SolidColorBrush x:Key="ButtonForegroundPressed">Gainsboro</SolidColorBrush>
+						</Style.Resources>
+					</Style>
+				</Button.Styles>
+			</Button>
+			<Button Name="CloseBtn"
+			        Command="{Binding onCloseProject}"
+			        HorizontalContentAlignment="Left"
+			        Margin="0,5,0,0"
+			        Width="250"
+			        Background="Transparent"
+			        Foreground="Gainsboro">
+				<StackPanel Orientation="Horizontal">
+					<Image Source="" Height="20" Margin="35,0,40,0"/>
+					<TextBlock Text="Close" Width="100" VerticalAlignment="Bottom"/>
+					<TextBlock Text="Ctrl+W" FontSize="10" VerticalAlignment="Bottom"/>
+				</StackPanel>
+				<Button.Styles>
+					<Style>
+						<Style.Resources>
+							<SolidColorBrush x:Key="ButtonBackgroundPointerOver">#707070</SolidColorBrush>
+							<SolidColorBrush x:Key="ButtonBackgroundPressed">Transparent</SolidColorBrush>
+							<SolidColorBrush x:Key="ButtonForegroundPointerOver">White</SolidColorBrush>
+							<SolidColorBrush x:Key="ButtonForegroundPressed">Gainsboro</SolidColorBrush>
+						</Style.Resources>
+					</Style>
+				</Button.Styles>
+			</Button>
+			<Button Name="HelpBtn"
+			        HorizontalContentAlignment="Left"
+			        Margin="0,5,0,0"
+			        Width="250"
+			        Background="Transparent"
+			        Foreground="Gainsboro">
+				<StackPanel Orientation="Horizontal">
+					<Image Source="/Assets/Help.png" Height="20" Margin="35,0,20,0"/>
+					<TextBlock Text="Help" Width="100" VerticalAlignment="Bottom"/>
+					<TextBlock Text="" FontSize="10" VerticalAlignment="Bottom"/>
+				</StackPanel>
+				<Button.Styles>
+					<Style>
+						<Style.Resources>
+							<SolidColorBrush x:Key="ButtonBackgroundPointerOver">#707070</SolidColorBrush>
+							<SolidColorBrush x:Key="ButtonBackgroundPressed">Transparent</SolidColorBrush>
+							<SolidColorBrush x:Key="ButtonForegroundPointerOver">White</SolidColorBrush>
+							<SolidColorBrush x:Key="ButtonForegroundPressed">Gainsboro</SolidColorBrush>
+						</Style.Resources>
+					</Style>
+				</Button.Styles>
+			</Button>
+			<Button Name="AboutBtn"
+			        HorizontalContentAlignment="Left"
+			        Margin="0,5,0,0"
+			        Width="250"
+			        Background="Transparent"
+			        Foreground="Gainsboro">
+				<StackPanel Orientation="Horizontal">
+					<Image Source="" Height="20" Margin="35,0,40,0"/>
+					<TextBlock Text="About" Width="100" VerticalAlignment="Bottom"/>
+					<TextBlock Text="" FontSize="10" VerticalAlignment="Bottom"/>
+				</StackPanel>
+				<Button.Styles>
+					<Style>
+						<Style.Resources>
+							<SolidColorBrush x:Key="ButtonBackgroundPointerOver">#707070</SolidColorBrush>
+							<SolidColorBrush x:Key="ButtonBackgroundPressed">Transparent</SolidColorBrush>
+							<SolidColorBrush x:Key="ButtonForegroundPointerOver">White</SolidColorBrush>
+							<SolidColorBrush x:Key="ButtonForegroundPressed">Gainsboro</SolidColorBrush>
+						</Style.Resources>
+					</Style>
+				</Button.Styles>
+			</Button>
+		</StackPanel>
+	</Grid>
+</UserControl>

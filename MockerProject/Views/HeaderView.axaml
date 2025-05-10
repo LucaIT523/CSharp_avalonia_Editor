@@ -1,0 +1,145 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:v="clr-namespace:MockerProject.Views"
+             xmlns:vm="clr-namespace:MockerProject.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="MockerProject.Views.HeaderView"
+             Background="#313131" 
+             x:CompileBindings="True" x:DataType="vm:MainWindowViewModel">
+	<UserControl.Resources>
+		<SolidColorBrush x:Key="TextControlBackgroundFocused">DarkGray</SolidColorBrush>
+		<SolidColorBrush x:Key="TextControlBackgroundPointerOver">DarkGray</SolidColorBrush>
+	</UserControl.Resources>
+
+	<UserControl.Styles>
+		<Style Selector="Button">
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="CornerRadius" Value="0"/>
+			<Style.Resources>
+				<SolidColorBrush x:Key="ButtonBackgroundPointerOver">#505050</SolidColorBrush>
+				<SolidColorBrush x:Key="ButtonBorderBrushPointerOver">#777777</SolidColorBrush>
+				<SolidColorBrush x:Key="ButtonBackgroundPressed">#373737</SolidColorBrush>
+				<SolidColorBrush x:Key="ButtonBorderBrushPressed">#777777</SolidColorBrush>
+				<SolidColorBrush x:Key="ButtonForegroundPointerOver">White</SolidColorBrush>
+			</Style.Resources>
+		</Style>
+		<!--<Style Selector="ToggleButton.rul:checked" >
+			<Setter Property="HorizontalAlignment" Value="Center"/>
+			<Setter Property="Margin" Value="10"/>
+			<Setter Property="BorderBrush" Value="Red"/>
+			<Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+			<Setter Property="VerticalContentAlignment" Value="Stretch"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate>
+						<Image Source="/Assets/Ruler1.png" Width="20" Height="20"/>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>-->
+		<Style Selector="ToggleButton:unchecked" >
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="BorderBrush" Value="Transparent"/>
+			<Setter Property="BorderThickness" Value="1"/>
+		</Style>
+		<Style Selector="ToggleButton:checked /template/ ContentPresenter">
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="BorderBrush" Value="DodgerBlue"/>
+			<Setter Property="BorderThickness" Value="1"/>
+		</Style>
+		<Style Selector="ToggleButton:pointerover /template/ ContentPresenter" >
+			<Setter Property="BorderBrush" Value="DarkGray"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="VerticalAlignment" Value="Center"/>
+		</Style>
+	</UserControl.Styles>
+
+	<Grid ColumnDefinitions="Auto,50*,Auto">
+		<DockPanel Grid.Column="0">
+			<Button Name="Menu" Width="42"
+			        Command="{Binding onMenuOpen}">
+				<Image Source="/Assets/Menu.png"
+				       Height="42"
+				       DockPanel.Dock="Left"/>
+			</Button>
+		</DockPanel>
+		<DockPanel Grid.Column="1" IsEnabled="{Binding IsProjectOpened}">
+			<Grid ColumnDefinitions="Auto,Auto,*">
+				<Rectangle Grid.Column="0"  VerticalAlignment="Stretch" Fill="{DynamicResource SystemChromeAltLowColor}" Opacity="0.33" Width="1" Margin="5 ,0,0,0"/>
+				<!--<GridSplitter Grid.Column="1" Background="Transparent"/>-->
+				<StackPanel Grid.Column="1"  Orientation="Horizontal" VerticalAlignment="Center" Margin=" 5 0 ">
+					<Button Margin=" 1 5 " ToolTip.Tip="New Screen" Command="{Binding onNewScreen}" >
+						<Image Source="/Assets/New.png" Height="20"/>
+					</Button>
+					<Button Margin="1 5" ToolTip.Tip="Open Project" Command="{Binding onOpenProject}">
+						<Image Source="/Assets/Open.png" Height="20"/>
+					</Button>
+					<Button Margin="1 5" ToolTip.Tip="Save Project" Command="{Binding onSaveProject}">
+						<Image Source="/Assets/Save.png" Height="20"/>
+					</Button>
+					<Button Margin="1 5" ToolTip.Tip="Save All Project" Command="{Binding onSaveAllProject}">
+						<Image Source="/Assets/SaveAll.png" Height="20"/>
+					</Button>
+					<Rectangle Grid.Column="1"  VerticalAlignment="Stretch" Fill="{DynamicResource SystemChromeAltLowColor}" Opacity="0.33" Width="1" Margin="5 ,0,5,0"/>
+					<Border BorderBrush="#777777" BorderThickness="1" Height="36" IsEnabled="{Binding IsWorkView}">
+						<StackPanel Orientation="Horizontal" Margin="5 0">
+							<Button Margin="2 2" ToolTip.Tip="Undo" Height="30" Width="30" Command="{Binding onUndo}">
+								<Image Source="/Assets/Undo.png" Height="20" Width="20"/>
+							</Button>
+							<Button Margin="2 2" ToolTip.Tip="Redo" Height="30" Width="30" Command="{Binding onRedo}">
+								<Image Source="/Assets/Redo.png" Height="20" Width="20"/>
+							</Button>
+						</StackPanel>
+					</Border>
+					<Rectangle Grid.Column="1"  VerticalAlignment="Stretch" Fill="{DynamicResource SystemChromeAltLowColor}" Opacity="0.33" Width="1" Margin="5 ,0,5,0"/>
+					<Border BorderBrush="#777777" BorderThickness="1" Height="36" IsEnabled="{Binding IsWorkView}">
+						<StackPanel Orientation="Horizontal" Margin="5 0">
+							<ToggleButton Name="Ruler" Margin="2 2" ToolTip.Tip="Show Ruler" Height="30" Width="30">
+								<DockPanel>
+									<Image Source="/Assets/Ruler.png" Height="20" Width="20" IsVisible="{Binding !#Ruler.IsChecked}"/>
+									<Image Source="/Assets/Ruler1.png" Height="20" Width="20" IsVisible="{Binding #Ruler.IsChecked}"/>
+								</DockPanel>
+							</ToggleButton>
+							<Button Margin="2 2" ToolTip.Tip="Show Actual Size" Height="30" Width="30">
+								<Image Source="/Assets/Full.png" Height="20" Width="20"/>
+							</Button>
+							<Button Margin="2 2" ToolTip.Tip="Show Fit Size" Height="30" Width="30">
+								<Image Source="/Assets/Fit.png" Height="20" Width="20"/>
+							</Button>
+						</StackPanel>
+					</Border>
+					
+					<!--<Button Name="ProjectShare" Background="White" Foreground="Black" Margin="3 5">
+						Share prototype
+					</Button>
+					<Button Name="ProjectStudy" Background="White" Foreground="Black" Margin="3 5">
+						Create usability study
+					</Button>
+					<Button Name="ProjectOptions" Background="White" Foreground="Black" Margin="3 5">
+						More options
+					</Button>-->
+				</StackPanel>
+				
+				
+			</Grid>
+		</DockPanel>
+		<StackPanel Grid.Column="2"  Orientation="Horizontal" IsEnabled="{Binding IsWorkView}">
+			<Button Margin="1 5" ToolTip.Tip="Run Project" HorizontalAlignment="Right" Command="{Binding onRun}">
+				<StackPanel Orientation="Horizontal" Margin="5 0">
+					<Image Source="/Assets/Run.png" Height="20"/>
+					<TextBlock Text="Run" Margin="5 0" VerticalAlignment="Bottom"></TextBlock>
+				</StackPanel>
+			</Button>
+			<Button Margin="1 5" ToolTip.Tip="Share Project" HorizontalAlignment="Right" Command="{Binding onShare}">
+				<StackPanel Orientation="Horizontal" Margin="5 0">
+					<Image Source="/Assets/Share.png" Height="20"/>
+					<TextBlock Text="Share" Margin="5 0"  VerticalAlignment="Bottom"></TextBlock>
+				</StackPanel>
+			</Button>
+			<TextBox Name="search" Text="" Watermark="Search" Width="150" Height="20" HorizontalAlignment="Right" Margin="10 5" />
+
+		</StackPanel>
+	</Grid>
+</UserControl>

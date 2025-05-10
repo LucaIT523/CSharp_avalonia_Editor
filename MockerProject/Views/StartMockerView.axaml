@@ -1,0 +1,83 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="MockerProject.Views.StartMockerView" Background="#272727"
+             xmlns:vm="clr-namespace:MockerProject.ViewModels"
+             x:DataType="vm:MainWindowViewModel">
+	<Panel Margin="30">
+		<Grid ColumnDefinitions="*, *">
+			<Grid Grid.Column="0">
+				<StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+					<TextBlock Foreground="Orange" Text="Design Studio" Margin="0,0,5,20" FontSize="24" HorizontalAlignment="Left"/>
+					<TextBlock Foreground="White" Text="Open recent"  Margin="3" FontSize="18"/>
+					<TextBox Text="" Watermark="Search for Projects...."  FontSize="12" MinWidth="10" Width="200" MaxWidth ="300" HorizontalAlignment="Left" Margin="20,5,10,5"/>
+					<ProgressBar IsIndeterminate="True" IsVisible="True"  MinWidth="100" Width="200" MaxWidth ="300" HorizontalAlignment="Left" Margin="20,0,10,5"/>
+					<ListBox Margin="20,1,5,0"  Background="Transparent" Foreground="GhostWhite">
+						<ListBoxItem Height="20" Padding="10 3">
+							<DockPanel VerticalAlignment="Center">
+								<TextBlock FontSize="10" HorizontalAlignment="Left"> Test design2 
+								</TextBlock>
+								<TextBlock FontSize="10" HorizontalAlignment="Right"> 15/7/2023 08:34
+								</TextBlock>
+							</DockPanel>
+						</ListBoxItem>
+						<ListBoxItem Height="20"  Padding="10 3">
+							<DockPanel VerticalAlignment="Center">
+								<TextBlock FontSize="10" HorizontalAlignment="Left"> Test design1 
+								</TextBlock>
+								<TextBlock FontSize="10" HorizontalAlignment="Right"> 13/7/2023 13:57
+								</TextBlock>
+							</DockPanel>
+						</ListBoxItem>
+					</ListBox>
+				</StackPanel>
+			</Grid>
+			<Grid Grid.Column="1">
+				<StackPanel HorizontalAlignment="Right">
+					<Button Command="{Binding onOpenProject}" HorizontalAlignment="Right" Foreground="Silver" FontSize="15"  Width="200" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="5,80,5,5">
+						Open a project
+						<Button.Styles>
+							<Style>
+								<Style.Resources>
+									<SolidColorBrush x:Key="ButtonBackgroundPointerOver">DarkSlateBlue</SolidColorBrush>
+									<SolidColorBrush x:Key="ButtonBackgroundPressed">MidnightBlue</SolidColorBrush>
+									<SolidColorBrush x:Key="ButtonForegroundPointerOver">White</SolidColorBrush>
+									<SolidColorBrush x:Key="ButtonForegroundPressed">Gainsboro</SolidColorBrush>
+								</Style.Resources>
+							</Style>
+						</Button.Styles>
+					</Button>
+					<Button Command="{Binding onNewProject}" HorizontalAlignment="Right" Foreground="Silver" FontSize="15" Width="200" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="5,5,5,5">
+						Create a new project
+						<Button.Styles>
+							<Style>
+								<Style.Resources>
+									<SolidColorBrush x:Key="ButtonBackgroundPointerOver">DarkSlateBlue</SolidColorBrush>
+									<SolidColorBrush x:Key="ButtonBackgroundPressed">MidnightBlue</SolidColorBrush>
+									<SolidColorBrush x:Key="ButtonForegroundPointerOver">White</SolidColorBrush>
+									<SolidColorBrush x:Key="ButtonForegroundPressed">Gainsboro</SolidColorBrush>
+								</Style.Resources>
+							</Style>
+						</Button.Styles>
+					</Button>
+					<!--<Button HorizontalAlignment="Right" Foreground="Silver" FontSize="15" Width="200" Height="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="5,5,5,5">
+						Go to main window
+						<Button.Styles>
+							<Style>
+								<Style.Resources>
+									<SolidColorBrush x:Key="ButtonBackgroundPointerOver">DarkSlateBlue</SolidColorBrush>
+									<SolidColorBrush x:Key="ButtonBackgroundPressed">MidnightBlue</SolidColorBrush>
+									<SolidColorBrush x:Key="ButtonForegroundPointerOver">White</SolidColorBrush>
+									<SolidColorBrush x:Key="ButtonForegroundPressed">Gainsboro</SolidColorBrush>
+								</Style.Resources>
+							</Style>
+						</Button.Styles>
+					</Button>-->
+				</StackPanel>
+				
+			</Grid>
+		</Grid>
+	</Panel>
+</UserControl>

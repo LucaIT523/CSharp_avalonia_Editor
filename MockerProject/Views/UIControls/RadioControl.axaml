@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="MockerProject.Views.RadioControl"
+             xmlns:vm="clr-namespace:MockerProject.ViewModels"
+             x:CompileBindings="True" x:DataType="vm:UIControlViewModel">
+    <StackPanel Name="radio">
+        <RadioButton IsChecked="False" GroupName="First Group" Content="Option 2"
+                     Width="{Binding width}"
+                     Height="{Binding height}"
+                     Opacity="{Binding opacity}"
+                     ToolTip.Tip = "{Binding Control_Tip}"
+                     Foreground="{Binding foreground}"
+                     FontSize="{Binding fontSize}"
+                     FontFamily="{Binding fontFamily}"
+                     FontWeight="{Binding fontWeight}"
+                     FontStyle="{Binding fontStyle}"
+                     />
+    </StackPanel>
+</UserControl>

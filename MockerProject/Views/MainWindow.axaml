@@ -1,0 +1,27 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:MockerProject.ViewModels"
+        xmlns:v="clr-namespace:MockerProject.Views"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="MockerProject.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Black"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Mocker">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <Grid x:Name="RootPanel"
+          ColumnDefinitions="*">
+        <v:MainView />
+        <ContentControl x:Name="StartMockerControl" HorizontalAlignment="Center" VerticalAlignment="Center" IsVisible="{Binding IsStartMocker}" Margin="50"/>
+        <ContentControl x:Name="MenuContentControl" HorizontalAlignment="Left" IsVisible="{Binding IsMenuOpened}"/>
+    </Grid>
+</Window>

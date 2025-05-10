@@ -1,0 +1,60 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="MockerProject.RunWindow"
+        Width="{Binding RunWindowWidth}"
+        Height="{Binding RunWindowHeight}"
+        Background="#777777"
+        Title="RunWindow"
+        Position="0 0"
+        RequestedThemeVariant="Light"
+        xmlns:vm="clr-namespace:MockerProject.ViewModels"
+        x:CompileBindings="True" x:DataType="vm:MainWindowViewModel">
+    <Window.Styles>
+    </Window.Styles>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" 
+                  VerticalScrollBarVisibility="Auto">
+        <Canvas Width="{Binding RunWindowWidth}" Height="{Binding RunWindowHeight}" Background="#777777" >
+           <LayoutTransformControl Name="PlatformUI" Grid.Column="1" Grid.Row="1" Canvas.Top="{Binding PF_Y}" Canvas.Left="{Binding PF_X}">
+            <LayoutTransformControl.LayoutTransform>
+                <TransformGroup>
+                    <RotateTransform Angle="{Binding PF_Ang}"/>
+                    <ScaleTransform ScaleX="1">
+                    </ScaleTransform>
+                </TransformGroup>
+            </LayoutTransformControl.LayoutTransform>
+            <Canvas Width="{Binding PF_W}" Height="{Binding PF_H}">
+                
+                <DockPanel Width="{Binding PF_W}" Height="{Binding PF_H}">
+                    <Grid ColumnDefinitions="Auto,*,Auto" Height="{Binding PF_TH}" DockPanel.Dock="Top">
+                        <Image Grid.Column="0" Source="{Binding Img_PF_TL}" ></Image>
+                        <Image Grid.Column="1" Source="{Binding Img_PF_TM}" Stretch="Fill"></Image>
+                        <Image Grid.Column="2" Source="{Binding Img_PF_TR}" ></Image>
+                    </Grid>
+                    <Grid ColumnDefinitions="Auto,*,Auto" Height="{Binding PF_BH}" DockPanel.Dock="Bottom">
+                        <Image Grid.Column="0" Source="{Binding Img_PF_BL}" ></Image>
+                        <Image Grid.Column="1" Source="{Binding Img_PF_BM}" Stretch="Fill"></Image>
+                        <Image Grid.Column="2" Source="{Binding Img_PF_BR}" ></Image>
+                    </Grid>
+                    <Image Source="{Binding Img_PF_L}" Width="{Binding PF_LW}" Stretch="Fill" DockPanel.Dock="Left"></Image>
+                    <Image Source="{Binding Img_PF_R}" Width="{Binding PF_RW}" Stretch="Fill" DockPanel.Dock="Right"></Image>
+					<DockPanel Width="{Binding PG_W}" Height="{Binding PG_H}" Background="White">
+						<ScrollViewer HorizontalScrollBarVisibility="Auto"
+						VerticalScrollBarVisibility="Auto">
+							<Canvas Name = "screenCanvas" Background="Transparent">
+                                <Rectangle Name="rectangle" Width="200" Height="200" Fill="White"></Rectangle>
+                            </Canvas>
+						</ScrollViewer>
+					</DockPanel>
+                </DockPanel>
+                <Image Source="{Binding Img_PF_TL0}" Canvas.Left="{Binding PF_TLX0}" Canvas.Top="{Binding PF_TLY}"></Image>
+                <Image Source="{Binding Img_PF_BL0}" Canvas.Left="{Binding PF_BLX}" Canvas.Top="{Binding PF_BLY}"></Image>
+            </Canvas>
+            
+        </LayoutTransformControl> 
+        
+        </Canvas>
+    </ScrollViewer>
+</Window>

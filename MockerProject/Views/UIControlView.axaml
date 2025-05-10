@@ -1,0 +1,81 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="MockerProject.Views.UIControlView" Background="#505050" Margin="5">
+    <UserControl.Styles>
+        <Style Selector="Border:pointerover">
+            <Setter Property="BorderBrush" Value="#777777"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+        <Style Selector="Border">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+    </UserControl.Styles>
+    
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" 
+                  VerticalScrollBarVisibility="Auto">
+        <StackPanel Orientation="Vertical" Margin="5">
+            <DockPanel>
+                <Border Margin="5">
+                    <Image Name="Button" Source="/Assets/UIControls/Button.png"
+                           Margin="5" 
+                           Height="60" Width="70" />
+                </Border>
+                <Border Margin="5">
+                    <Image Name="TextBox" Source="/Assets/UIControls/TextField.png"
+                           Margin="5" 
+                           Height="60" Width="70" />
+                </Border>
+                <Border Margin="5">
+                    <Image Name="Label" Source="/Assets/UIControls/Label.png"
+                           Margin="5" 
+                           Height="60" Width="70" />
+                </Border>
+            </DockPanel>
+            <DockPanel>
+                <Border Margin="5">
+                    <Image Name="Title" Source="/Assets/UIControls/Title.png"
+                           Margin="5" 
+                           Height="60" Width="70" />
+                </Border>
+                <Border Margin="5">
+                    <Image Name="Link" Source="/Assets/UIControls/Link.png"
+                           Margin="5" 
+                           Height="60" Width="70" />
+                </Border>
+                <Border Margin="5">
+                    <Image Name="Password" Source="/Assets/UIControls/Password.png"
+                           Margin="5" 
+                           Height="60" Width="70" />
+                </Border>
+            </DockPanel>
+            <DockPanel>
+                <Border Margin="5">
+                    <Image Name="Check" Source="/Assets/UIControls/Check.png"
+                           Margin="5" 
+                           Height="60" Width="70" />
+                </Border>
+                <Border Margin="5">
+                    <Image Name="Image" Source="/Assets/UIControls/Image.png"
+                           Margin="5" 
+                           Height="60" Width="70" />
+                </Border>
+                <Border Margin="5">
+                    <Image Name="Radio" Source="/Assets/UIControls/Radio.png"
+                           Margin="5" 
+                           Height="60" Width="70" />
+                </Border>
+            </DockPanel>
+            <DockPanel>
+                <Border Margin="5" Width="80">
+                    <Image Name="DataPicker" Source="/Assets/UIControls/DataPicker.png"
+                           Margin="5" 
+                           Height="60" Width="70" />
+                </Border>
+            </DockPanel>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
